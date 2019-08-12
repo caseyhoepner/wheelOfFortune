@@ -1,0 +1,29 @@
+body {
+  box-sizing: border-box;
+  }
+
+.game-cont {
+  background-image: url(./assets/images/wof.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.start-btn {
+  padding: 50px 100px;
+  border-radius: 20px;
+  margin: auto;
+  display: block;
+  margin-top: 500px;
+  background-color: #07010f;
+  border: 2px solid #7b74db;
+  color: #7b74db;
+  font-size: 3rem;
+}
+
+.start-btn:hover {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
