@@ -8,6 +8,8 @@ function startGame() {
 
   gameElements.classList.remove('hide');
   welcomePage.classList.add('hide');
-  
+
+  var audio = new Audio('assets/sounds/puzzle-reveal.mp3');
+  audio.play();
 }
 
