@@ -1,11 +1,15 @@
 body {
   box-sizing: border-box;
+  margin: 0;
   }
 
-.game-cont {
+.welcome-page {
+  height: 100vh;
+  width: 100%;
   background-image: url(./assets/images/wof.png);
   background-size: cover;
   background-repeat: no-repeat;
+  margin: 0;
 }
 
 .start-btn {
@@ -13,7 +17,6 @@ body {
   border-radius: 20px;
   margin: auto;
   display: block;
-  margin-top: 500px;
   background-color: #07010f;
   border: 2px solid #7b74db;
   color: #7b74db;
