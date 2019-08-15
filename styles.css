@@ -1,32 +1,17 @@
 body {
-  box-sizing: border-box;
   margin: 0;
-  }
-
-.welcome-page {
+  position: relative;
   height: 100vh;
-  width: 100%;
-  background-image: url(./assets/images/wof.png);
-  background-size: cover;
+  background-image: url(./assets/images/wheel.png);
   background-repeat: no-repeat;
-  margin: 0;
+  background-position: bottom;
 }
 
-.start-btn {
-  padding: 50px 100px;
-  border-radius: 20px;
-  margin: auto;
-  display: block;
-  background-color: #07010f;
-  border: 2px solid #7b74db;
-  color: #7b74db;
-  font-size: 3rem;
+.logo {
+  height: 200px;
+  margin: 20px;
 }
-
-.start-btn:hover {
-  cursor: pointer;
-}
-
-.hide {
-  display: none;
+.wheel {
+  position: absolute;
+  bottom: 0px;
 }
