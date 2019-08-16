@@ -22,7 +22,6 @@ function Player(name) {
 
 function submitPlayer(e) {
   e.preventDefault();
-
   const playerNumber = e.toElement.name;
   const nextPlayerNumber = (parseInt(e.toElement.name) + 1).toString();
   const playerName = document.querySelector(`#player${playerNumber}-name`).value;
@@ -36,17 +35,20 @@ function submitPlayer(e) {
     nextForm.classList.remove('hide');
   }
   appendPlayer(newPlayer);
+  if (nextPlayerNumber > 3) {
+    loadNewPuzzle();
+  }
 }
 
 function appendPlayer(player) {
   const playerContainer = document.querySelector('#players');
   const playerDiv = document.createElement('div');
+
   playerDiv.innerHTML = `
     <div class='player-card'>
       <h3 class=''>${player.name}</h3>
       <h4>$${player.winnings}</h4>
-    </div>
-    `
+    </div>`
   playerContainer.appendChild(playerDiv);
 }
 
@@ -57,8 +59,32 @@ function startNewGame() {
 function loadInitialPuzzle(blockNumber) {
   const puzzleContainer = document.querySelector('#puzzle-cont');
   const blockDiv = document.createElement('div');
+  
   blockDiv.innerHTML = `
-    <div id='block${blockNumber}' class='block'></div>
-    `
+    <div id='block${blockNumber}' class='block'>
+      <p id='block${blockNumber}-text'class='block-text'></p>
+    </div>`
   puzzleContainer.appendChild(blockDiv);
+}
+
+function loadNewPuzzle() {
+  const puzzleBankLength = puzzleData.puzzles.puzzle_bank.length - 1;
+  const randomPuzzleNumber = Math.floor(Math.random() * Math.floor(puzzleBankLength));
+  const puzzle = puzzleData.puzzles.puzzle_bank[randomPuzzleNumber];
+  const correctAnswerArray = puzzle.correct_answer.split('');
+  const activeBlocks = correctAnswerArray.map((letter, index) => letter !== ' ');
+
+  activeBlocks.forEach((block, index) => {
+    if(block === true) {
+      document.querySelector(`#block${index + 1}`).classList.add('active-block');
+    }
+  });
+  document.getElementById('category').innerText = puzzle.category;
+
+  playPuzzleReveal();
+}
+
+function playPuzzleReveal() {
+  const audio = new Audio('./assets/sounds/puzzle-reveal.mp3');
+  audio.play();
 }
