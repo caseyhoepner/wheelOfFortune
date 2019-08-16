@@ -5,7 +5,45 @@
   <title>Wheel of Fortune</title>
 </head>
 <body>
-  <img class='logo' src="./assets/images/logo2.png">
+
+<!-- player forms -->
+  <div class='player-form' id='player1-form'>
+    <h1>Player 1</h1>
+      <form>
+        Name: <br>
+        <input id='player1-name' type="text" name="name">
+        <input name='1' class='player-submit' type="submit">
+      </form>
+  </div>
+  <div id='player2-form' class='player-form hide'>
+    <h1>Player 2</h1>
+      <form>
+        Name: <br>
+        <input id='player2-name' type="text" name="name">
+        <input name='2' class='player-submit' type="submit">
+      </form>
+  </div>
+  <div id='player3-form' class='player-form hide'>
+    <h1>Player 3</h1>
+      <form>
+        Name: <br>
+        <input id='player3-name' type="text" name="name">
+        <input name='3' class='player-submit' type="submit">
+      </form>
+  </div>
+
+  <div id='game-btns'>
+    <img class='logo' src="./assets/images/logo2.png">
+
+    <div>
+      <button id='new-game-btn'>New Game</button>
+      <button>Quit Game</button>
+    </div>
+  </div>
+
+  <div id='puzzle'></div>
+  <div id='players'></div>
+
 </body>
 <script type="text/javascript" src="scripts.js"></script>
 </html>
