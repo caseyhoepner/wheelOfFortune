@@ -8,6 +8,13 @@ playerSubmitBtns.forEach(btn => {
 const newGameBtn = document.querySelector('#new-game-btn');
 newGameBtn.addEventListener('click', startNewGame);
 
+document.addEventListener("DOMContentLoaded", function() {
+  const blockNumber = 1;
+  for (var i = blockNumber; i < 49; i++) {
+    loadInitialPuzzle(i);
+  }
+});
+
 function Player(name) {
   this.name = name;
   this.winnings = 0;
@@ -33,7 +40,6 @@ function submitPlayer(e) {
 
 function appendPlayer(player) {
   const playerContainer = document.querySelector('#players');
-  console.log(player.name)
   const playerDiv = document.createElement('div');
   playerDiv.innerHTML = `
     <div class='player-card'>
@@ -46,4 +52,13 @@ function appendPlayer(player) {
 
 function startNewGame() {
   location.reload();
+}
+
+function loadInitialPuzzle(blockNumber) {
+  const puzzleContainer = document.querySelector('#puzzle-cont');
+  const blockDiv = document.createElement('div');
+  blockDiv.innerHTML = `
+    <div id='block${blockNumber}' class='block'></div>
+    `
+  puzzleContainer.appendChild(blockDiv);
 }
